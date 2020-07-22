@@ -1,20 +1,21 @@
 import * as yup from 'yup'
 
-const Schema = yup.object().shape({
+const schema = yup.object().shape({
   email: yup
     .string()
     .email("Email must be valid")
     .required("Email is required"),
-  username: yup
+  name: yup
     .string()
-    .min(6, "Username must be at least 6 characters")
-    .required("Username is Required"),
-  role: yup
+    .min(3, "Name must be at least 3 characters")
+    .required("Name is Required"),
+  password: yup
     .string()
-    .oneOf(['tl', 'instructor', 'alumni', 'student'], "Role is required"),
-  civil: yup
+    .min(8, "Password must be 8 Characters long.")
+    .required('Password is required.'),
+  termsOfService: yup
     .string()
-    .oneOf(['married', 'single'], "Civil status is required")
+    .oneOf(['accept', 'decline'], "Accept is required"),
 })
 
-export default Schema
+export default schema
