@@ -29,7 +29,7 @@ return (
     <form className='form container' onSubmit={onSubmit}>
         <div className='form submit'>
             <h2>Add An User</h2>
-            <button >Submit</button>
+            <button className='submitButton'>Submit</button>
             <div className='errors'>
             <div>{errors.name}</div>
             <div>{errors.email}</div>
