@@ -102,9 +102,13 @@ function App() {
 
   useEffect(() => {
     schema.isValid(formValues).then(valid => {
+      console.log(valid)
       setDisabled(!valid)
     })
   }, [formValues])
+
+  // console.log(formErrors);
+    console.log(formValues)
 
   return (
     <div className="App">

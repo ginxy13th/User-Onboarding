@@ -13,9 +13,17 @@ const schema = yup.object().shape({
     .string()
     .min(8, "Password must be 8 Characters long.")
     .required('Password is required.'),
-  termsOfService: yup
-    .string()
-    .oneOf(['accept', 'decline'], "Accept is required"),
+  // termsOfService: yup
+  //   .string()
+  //   .oneOf(['accept', 'declined'], "accept is required"),
+  termsOfService: yup.object().shape({
+    accept: yup.boolean(),
+    decline: yup.boolean()
+  }).test('tosValidate', null, (obj) => {
+    if (obj.accept === true) {
+      return true
+    }
+  })
 })
 
 export default schema
